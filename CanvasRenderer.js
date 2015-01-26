@@ -1,4 +1,3 @@
-alert('hello')
 /**
  * @author mrdoob / http://mrdoob.com/
  */

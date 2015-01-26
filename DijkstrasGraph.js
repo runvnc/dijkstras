@@ -10,6 +10,17 @@ class DijkstrasGraph {
     this.unvisited.delete(vertex);
   }
 
+  findNextClose() {
+    var next = null;
+    var closest = infinity;
+    for (var vertex of this.unvisited) {
+      if (vertex.distance < closest) {
+        next = vertex;
+      }
+    }
+    return next;
+  }
+
   *findShortestPath(from, to) {
     from.edges.map((edge) => { 
       vertex = edge.endVertex;
@@ -23,9 +34,7 @@ class DijkstrasGraph {
 
     this.markVisited(from);
 
-    var next = this.unvisited.reduce(
-      (a, b) => { a.distance < b.distance ? a : b; }
-    );
+    var next = findNextClose();
 
     if (next === to) {
       yield next;

@@ -21,24 +21,15 @@
 	</head>
 	<body>
     <div id="msg" ></div>
-		<script src="three.min.js"></script>
+    <script src="polyfill.js"></script>
+    <script src="three.min.js"></script>
 
 		<script src="Projector.js"></script>
 		<script src="CanvasRenderer.js"></script>
 
 		<script src="stats.min.js"></script>
 
-    <script src="_Graph.js"></script>
-
 		<script>
-     function write(msg) {
-       var div = document.getElementById('info');
-       div.innerHTML = msg + '<br/>' + div.innerHTML;
-     }
-
-      window.onerror = function(e) {
-        write(e);
-      }
 
 			var container, stats;
 
@@ -69,8 +60,8 @@
         info.class = 'info';
 				info.style.top = '127px';
 				info.style.width = '100%';
-				info.style.textAlign = 'center';
-				info.innerHTML = 'Drag to spin the cube';
+				info.style.textAlign = 'left';
+				info.innerHTML = '';
 				container.appendChild( info );
 
 				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
@@ -121,9 +112,6 @@
 				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-        write('ok2');
-
-				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
@@ -225,7 +213,7 @@
 			}
 
 		</script>
-
-    <script src="testgraph.js"></script>
+    <script src="traceur.js"></script>
+    <script src="src.js"></script>
 	</body>
 </html>
